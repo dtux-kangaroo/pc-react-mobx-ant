@@ -1,5 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
+import { Button } from 'antd';
 import './style.scss';
 
 @inject("clickTimes")
@@ -16,13 +17,9 @@ class Home extends React.Component {
         return (
             <div>
                 这里是Home
-                <div className="home"
-                    onClick={() => {
-                        this._addHandle(1);
-                    }}
-                >
+                <Button type="primary" className="home" onClick={() => { this._addHandle(1);}}>
                     点击次数：{this.props.clickTimes.times}
-                </div>
+                </Button>
             </div>
         );
     }

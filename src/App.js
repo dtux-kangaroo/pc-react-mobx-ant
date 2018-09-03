@@ -1,37 +1,81 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Layout} from 'antd';
-import Home from 'pages/home'
+import { Layout, Menu, Icon } from 'antd';
+import Loading from 'components/loading';
 import Loadable from "react-loadable";
-import DevTools from 'mobx-react-devtools';
 import TopNav from 'components/topNav';
 
+import DevTools from 'mobx-react-devtools';
+
 const { Header, Content, Sider } = Layout;
-const Loading = () => "Loading...";
+
 const User = Loadable({
    loader: () => import("pages/user"), 
    loading: Loading,
-   delay: 150
  });
+ const Home = Loadable({
+  loader: () => import("pages/home"), 
+  loading: Loading,
+});
+class App extends React.Component {
+  state = {
+    collapsed: false,
+  };
 
-class App extends Component {
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+
   render() {
     return (
-      <div className="App">
       <Layout>
-        <TopNav/>
-        <Switch>
-          <Redirect exact from="/" to="/home" />
-          <Route path="/home" component={Home} />
-          <Route path="/user" component={User} />
-        </Switch>
-        {
-          // <DevTools />
-        }
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={this.state.collapsed}
+          style={{height:'100vh'}}
+          >
+          <div className="logo" />
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">
+              <Icon type="user" />
+              <span>nav 1</span>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Icon type="video-camera" />
+              <span>nav 2</span>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <Icon type="upload" />
+              <span>nav 3</span>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Layout>
+          <Header style={{ background: '#fff', padding: '0 20px' }}>
+            <Icon
+              className="trigger"
+              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.toggle}
+            />
+          </Header>
+          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+              <Switch>
+                <Redirect exact from="/" to="/home" />
+                <Route path="/home" component={Home} />
+                <Route path="/user" component={User} />
+              </Switch>
+                {
+                  // <DevTools />
+                }
+          </Content>
         </Layout>
-      </div>
-    )
+      </Layout>
+    );
   }
 }
+
 
 export default App
