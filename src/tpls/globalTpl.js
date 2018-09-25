@@ -61,9 +61,8 @@ class App extends Component {
           </Header>
           <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <Switch>
-                <Redirect exact from="/" to="/home" />
-                <Route path="/home" component={Home} />
-                <Route path="/user" component={User} />
+                  <Route path="/home" component={Home} />
+                  <Route path="/user" component={User} />
               </Switch>
           </Content>
         </Layout>

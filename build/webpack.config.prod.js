@@ -93,10 +93,10 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx','.less'],
     alias: {
       '@': resolve('src'),
-      'assets': resolve('src/assets'),
+      'public': resolve('src/public'),
       'components': resolve('src/components'),
       'pages': resolve('src/pages'),
-      'mock': resolve('mock'),
+      'mock': resolve('src/public/mock'),
       'api': resolve('src/api'),
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/

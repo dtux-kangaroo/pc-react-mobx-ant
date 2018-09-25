@@ -6,7 +6,7 @@ import stores from './stores/index';
 import Routers from './routers';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
-import 'assets/style/index.less';
+import 'public/assets/style/index.less';
 import registerServiceWorker from './registerServiceWorker';
 // import fastclick from 'fastclick'    //移动端
 // fastclick.attach(document.body);

@@ -87,11 +87,11 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx','.less','.scss'],
     alias: {
       '@': resolve('src'),
-      'assets': resolve('src/assets'),
+      'public': resolve('src/public'),
       'components': resolve('src/components'),
       'pages': resolve('src/pages'),
       'api': resolve('src/api'),
-      'mock': resolve('mock'),
+      'mock': resolve('src/public/mock'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
