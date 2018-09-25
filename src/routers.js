@@ -15,7 +15,7 @@ export default class Routers extends React.Component {
     return (
       <Router history={ history }>
         <Switch>
-          <Route exact path='/' component={AuthTpl}></Route>
+          <Route exact path='/' component={GlobalTpl}></Route>
           <Route  path='/login' component={AuthTpl}></Route>
           <Route  path='/app' component={GlobalTpl}></Route>
           <Redirect to="/app" />
