@@ -30,7 +30,6 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.4.0",
     "express": "^4.16.3",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fastclick": "^1.0.6",
     "file-loader": "2.0.0",
     "fs-extra": "3.0.1",
@@ -41,8 +40,8 @@
     "jest": "20.0.4",
     "js-base64": "^2.4.3",
     "jsonp": "^0.2.1",
-    "less": "^3.0.1",
-    "less-loader": "^4.1.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.1",
     "lyric-parser": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.3",
     "mobx": "^4.1.1",
@@ -67,7 +66,7 @@
     "react-transition-group": "^2.3.1",
     "sass-loader": "^7.1.0",
     "style-loader": "0.19.0",
-    "sw-precache-webpack-plugin": "0.11.4",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "0.6.2",
     "webpack": "^4.19.0",
@@ -78,9 +77,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "mock": "node ./mock/server.js",
-    "mock2": "nodemon --harmony ./mock/server.js"
+    "build": "node scripts/build.js"
   },
   "babel": {
     "presets": [
