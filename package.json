@@ -40,7 +40,7 @@
     "jest": "20.0.4",
     "js-base64": "^2.4.3",
     "jsonp": "^0.2.1",
-    "less": "^2.7.3",
+    "less": "2.7.3",
     "less-loader": "^4.0.1",
     "lyric-parser": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.3",
