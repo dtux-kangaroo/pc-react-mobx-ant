@@ -14,6 +14,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const theme = require('../antd-theme.js');
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -101,86 +102,20 @@ module.exports = {
             },
           },
           {
-            test: /\.(css|less)$/,
-            use:[
+            test: /\.(less|css)$/,
+            use: [
               MiniCssExtractPlugin.loader,
-              {
-                loader: require.resolve('style-loader'),
-                options: {
-                  hmr: false,
-                },
-              },
-              {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                  minimize: true,
-                  sourceMap: shouldUseSourceMap,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    require('postcss-flexbugs-fixes'),
-                    autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              },
-              {
-                loader: require.resolve('less-loader') // compiles Less to CSS
-              }
-            ] 
+              "css-loader",
+              "less-loader?{modifyVars:" + JSON.stringify(theme) + "}"
+            ],
           },
           {
-            test: /\.(css|scss)$/,
-            use:[
+            test: /\.(scss|sass)$/,
+            use: [
               MiniCssExtractPlugin.loader,
-              {
-                loader: require.resolve('style-loader'),
-                options: {
-                  hmr: false,
-                },
-              },
-              {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                  minimize: true,
-                  sourceMap: shouldUseSourceMap,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    require('postcss-flexbugs-fixes'),
-                    autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              },
-              {
-                loader: require.resolve('sass-loader') // compiles Less to CSS
-              }
-            ],
+              "css-loader",
+              "sass-loader"
+            ]
           },
           {
             loader: require.resolve('file-loader'),

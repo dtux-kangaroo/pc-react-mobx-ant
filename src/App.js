@@ -11,7 +11,6 @@ import registerServiceWorker from './registerServiceWorker';
 // import fastclick from 'fastclick'    //移动端
 // fastclick.attach(document.body);
 // import DevTools from 'mobx-react-devtools';
-
 const render = Component =>
     ReactDOM.render(
       <Provider { ...stores }>
